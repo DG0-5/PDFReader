@@ -8,11 +8,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
-try:
-    from langchain_chroma import Chroma
-except Exception as e:
-    st.error(f"Error importing Chroma: {e}")
-
+from langchain_chroma import Chroma
 import chromadb
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
