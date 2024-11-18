@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-embeddings = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2', api_key = st.secrets["HF_TOKEN"])
+embeddings = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2')
 
 # Setup Streamlit
 st.title('Conversational RAG with PDF uploads and chat history')
