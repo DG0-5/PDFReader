@@ -2,7 +2,6 @@ langchain_chroma
 langchain-chroma
 langchain_huggingface
 langchain-huggingface
-python==3.10.0
 chromadb
 torch
 pypdf
