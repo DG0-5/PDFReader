@@ -12,4 +12,4 @@ langchain_core
 streamlit
 langchain-groq
 langchain_groq
-sqlite>=3.35.0
+sqlite==3.35.0
