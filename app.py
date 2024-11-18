@@ -20,14 +20,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-embeddings = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2') # , api_key = st.secrets["HF_TOKEN"]
+embeddings = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2', api_key = st.secrets["HF_TOKEN"])
 
 # Setup Streamlit
 st.title('Conversational RAG with PDF uploads and chat history')
 st.write("Upload PDF's and chat with their content")
+
 # Input GROQ API Key
-# api_key = st.text_input('Enter your GROQ API Key: ', type='password')
 api_key = st.secrets["GROQ_API_KEY"]
+
 # Check if groq api key is provided
 if api_key:
     llm = ChatGroq(groq_api_key=api_key,model_name="Gemma2-9b-It")
