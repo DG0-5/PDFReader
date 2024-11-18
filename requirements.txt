@@ -13,4 +13,4 @@ langchain_core
 streamlit
 langchain-groq
 langchain_groq
-sqlite3
+sqlite
