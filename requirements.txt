@@ -2,7 +2,7 @@ langchain_chroma
 langchain-chroma
 langchain_huggingface
 langchain-huggingface
-chromadb==0.4.9
+chromadb
 torch
 pypdf
 langchain
@@ -12,4 +12,3 @@ langchain_core
 streamlit
 langchain-groq
 langchain_groq
-sqlite>=3.43.2
