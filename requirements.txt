@@ -14,3 +14,5 @@ streamlit
 langchain-groq
 langchain_groq
 pysqlite3-binary
+faiss-gpu
+faiss-cpu
