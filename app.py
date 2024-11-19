@@ -9,6 +9,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
 from langchain.vectorstores import Chroma
+from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import FAISS
 import chromadb
 from langchain_core.chat_history import BaseChatMessageHistory
@@ -64,17 +65,18 @@ if api_key:
         #     persist_directory=None
         # )
         # retriever = vectorstore.as_retriever()
-
-        # def create_vector_embedding():
-        #     if "vectors" not in st.session_state:
-        #         st.session_state.embeddings=OllamaEmbeddings()
-        #         st.session_state.loader=PyPDFDirectoryLoader("research_papers") ## Data Ingestion step
-        #         st.session_state.docs=st.session_state.loader.load() ## Document Loading
-        #         st.session_state.text_splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
-        #         st.session_state.final_documents=st.session_state.text_splitter.split_documents(st.session_state.docs[:50])
-        st.session_state.vectors = FAISS.from_documents(splits,embeddings)
+        
+        def create_vector_embedding():
+            if "vectors" not in st.session_state:
+                st.session_state.embeddings=OllamaEmbeddings()
+                st.session_state.loader=PyPDFDirectoryLoader("research_papers") ## Data Ingestion step
+                st.session_state.docs=st.session_state.loader.load() ## Document Loading
+                st.session_state.text_splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
+                st.session_state.final_documents=st.session_state.text_splitter.split_documents(st.session_state.docs[:50])
+                st.session_state.vectors=FAISS.from_documents(st.session_state.final_documents,st.session_state.embeddings)
 
         retriever = st.session_state.vectors.as_retriever()
+
 
         contextualize_q_system_prompt=(
             "Given a chat history and the latest user question"
