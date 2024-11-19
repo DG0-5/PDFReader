@@ -60,7 +60,7 @@ if api_key:
         vectorstore = Chroma.from_documents(
             documents=splits, 
             embedding=embeddings, 
-            persist_directory=None
+            persist_directory="./chroma_langchain_db"
         )
         retriever = vectorstore.as_retriever()
 
