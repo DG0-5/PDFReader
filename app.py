@@ -23,7 +23,7 @@ load_dotenv()
 embeddings = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2')
 
 # Setup Streamlit
-st.title('Conversational RAG with PDF uploads and chat history')
+st.title('Conversational RAG with PDF uploads')
 st.write("Upload PDF's and chat with their content")
 
 # Input GROQ API Key
